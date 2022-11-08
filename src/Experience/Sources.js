@@ -14,11 +14,16 @@ export default [
   {
     name: 'grassColorTexture',
     type: 'texture',
-    path: 'textures/dirt/color.jpg'
-},
-{
+    path: 'textures/dirt/color.jpg',
+  },
+  {
     name: 'grassNormalTexture',
     type: 'texture',
-    path: 'textures/dirt/normal.jpg'
-}
+    path: 'textures/dirt/normal.jpg',
+  },
+  {
+    name: 'brainStemModel',
+    type: 'gltfModel',
+    path: 'models/BrainStem/glTF/BrainStem.gltf',
+  },
 ];

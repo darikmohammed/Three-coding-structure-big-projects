@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 import Experience from '../Experience.js';
+import BrainStem from './BrainStem.js';
 import Environment from './Environment.js';
 import Floor from './Floor.js';
 
@@ -12,6 +13,7 @@ export default class World {
 
     this.resources.on('ready', () => {
       this.floor = new Floor();
+      this.brainStem = new BrainStem();
       this.enivronment = new Environment();
     });
   }
