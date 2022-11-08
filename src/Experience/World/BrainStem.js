@@ -6,15 +6,16 @@ export default class BrainStem {
   constructor() {
     this.experience = new Experience();
     this.scene = this.experience.scene;
+    this.time = this.experience.time;
     this.resources = this.experience.resources;
     this.resource = this.resources.items.brainStemModel;
-    console.log(this.resources);
     this.setModel();
+    this.setAnimation();
   }
 
   setModel() {
     this.model = this.resource.scene;
-    this.model.scale.set(2, 2, 2);
+    this.model.scale.set(1.6, 1.6, 1.6);
     this.scene.add(this.model);
 
     this.model.traverse((child) => {
@@ -22,5 +23,18 @@ export default class BrainStem {
         child.castShadow = true;
       }
     });
+  }
+
+  setAnimation() {
+    this.animation = {};
+    this.animation.mixer = new THREE.AnimationMixer(this.model);
+    this.animation.action = this.animation.mixer.clipAction(
+      this.resource.animations[0]
+    );
+    this.animation.action.play();
+  }
+
+  update() {
+    this.animation.mixer.update(this.time.delta * 0.00065);
   }
 }

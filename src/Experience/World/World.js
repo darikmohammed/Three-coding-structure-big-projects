@@ -1,5 +1,3 @@
-import * as THREE from 'three';
-
 import Experience from '../Experience.js';
 import BrainStem from './BrainStem.js';
 import Environment from './Environment.js';
@@ -16,5 +14,9 @@ export default class World {
       this.brainStem = new BrainStem();
       this.enivronment = new Environment();
     });
+  }
+
+  update() {
+    if (this.brainStem) this.brainStem.update();
   }
 }
